@@ -81,7 +81,7 @@ def ifft2(data):
     """
     assert data.size(-1) == 2
     data = ifftshift(data, dim=(-3, -2))
-    data = torch.ifft(data, 2, normalized=True)
+    data = torch.fft.ifft(data, 2, norm ="forward")
     data = fftshift(data, dim=(-3, -2))
     return data
 
